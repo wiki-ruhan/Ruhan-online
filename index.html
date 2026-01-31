@@ -9,121 +9,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        dark: '#050a14',
-                        card: 'rgba(20, 25, 40, 0.6)',
-                        primary: '#38bdf8', // Electric Blue
-                        secondary: '#6366f1', // Indigo
-                        accent: '#10b981', // Emerald for sustainable tech
+                        dark: '#0f172a',
+                        primary: '#0ea5e9',
+                        secondary: '#64748b',
                     },
                     fontFamily: {
                         sans: ['Outfit', 'sans-serif'],
                         mono: ['Space Grotesk', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                     }
                 }
             }
         }
     </script>
-
     <style>
-        /* --- CORE AESTHETICS --- */
-        body {
-            background-color: #050a14;
-            color: #f8fafc;
-            cursor: none;
-            overflow-x: hidden;
-        }
-
-        .noise-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 90;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        .tech-grid {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background-image: 
-                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
-        }
-
-        /* --- CUSTOM CURSOR --- */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0; left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot {
-            width: 8px; height: 8px;
-            background-color: #38bdf8;
-            box-shadow: 0 0 10px #38bdf8;
-        }
-        .cursor-outline {
-            width: 40px; height: 40px;
-            border: 1px solid rgba(56, 189, 248, 0.5);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        body:has(a:hover, button:hover, .hover-trigger:hover) .cursor-outline {
-            width: 60px; height: 60px;
-            background-color: rgba(56, 189, 248, 0.1);
-            border-color: #38bdf8;
-        }
-
-        /* --- COMPONENTS --- */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .glass-card {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.4));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .glass-card:hover {
-            border-color: rgba(56, 189, 248, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px -10px rgba(56, 189, 248, 0.15);
-        }
-
-        .text-gradient-accent {
-            background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Marquee */
+        /* Marquee Specific */
         .marquee-track {
             display: flex;
             width: max-content;
@@ -133,427 +38,129 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-        
-        .schematic-line {
-            position: absolute;
-            left: 20px; top: 0; bottom: 0; width: 2px;
-            background: linear-gradient(to bottom, transparent, #334155 10%, #334155 90%, transparent);
-        }
     </style>
 </head>
-<body class="antialiased selection:bg-primary selection:text-dark">
-
-    <div class="noise-overlay"></div>
-    <div class="tech-grid"></div>
+<body class="antialiased selection:bg-primary selection:text-white bg-dark">
+    <div class="tech-bg"></div>
     
-    <div class="cursor-dot hidden md:block"></div>
-    <div class="cursor-outline hidden md:block"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-panel">
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-2xl font-mono font-bold tracking-tighter hover-trigger">
+            <a href="index.html" class="text-2xl font-mono font-bold tracking-tighter text-white">
                 RS<span class="text-primary">RUHAN</span>
             </a>
             
-            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-gray-400">
-                <a href="#about" class="hover:text-white transition-colors hover-trigger">PROFILE</a>
-                <a href="#experience" class="hover:text-white transition-colors hover-trigger">EXPERIENCE</a>
-                <a href="#projects" class="hover:text-white transition-colors hover-trigger">INNOVATION</a>
-                <a href="#leadership" class="hover:text-white transition-colors hover-trigger">LEADERSHIP</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-slate-400">
+                <a href="profile.html" class="hover:text-primary transition-colors">PROFILE</a>
+                <a href="experience.html" class="hover:text-primary transition-colors">EXPERIENCE</a>
+                <a href="projects.html" class="hover:text-primary transition-colors">PROJECTS</a>
+                <a href="leadership.html" class="hover:text-primary transition-colors">LEADERSHIP</a>
             </div>
 
-            <a href="mailto:rownakshahriarruhan@gmail.com" class="hidden md:flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-all hover-trigger text-sm font-bold">
+            <a href="mailto:rownakshahriarruhan@gmail.com" class="hidden md:flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-all text-sm font-bold">
                 <i class="fas fa-envelope"></i> CONTACT
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="fade-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    Automotive Engineering Focus
-                </div>
-                
-                <h1 class="font-mono text-5xl md:text-7xl font-bold leading-tight mb-6">
-                    Advancing <br>
-                    <span class="text-gradient-accent typewriter" id="typewriter"></span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-lg leading-relaxed">
-                    Mechanical Engineer & Entrepreneur. Founder of a government-funded EV startup. Bridging vehicle design, structural analysis, and operational efficiency.
-                </p>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="#experience" class="hover-trigger group relative px-8 py-4 bg-white text-dark font-bold rounded-lg overflow-hidden transition-transform active:scale-95">
-                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-indigo-400 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
-                        <span class="relative z-10 group-hover:text-white flex items-center gap-2">
-                            SEE EXPERIENCE <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
-                        </span>
-                    </a>
-                    
-                    <a href="https://linkedin.com/in/rsruhan" target="_blank" class="hover-trigger px-8 py-4 rounded-lg border border-gray-700 hover:border-primary text-gray-300 hover:text-white transition-all font-medium flex items-center gap-2">
-                        <i class="fab fa-linkedin text-xl"></i> LINKEDIN
-                    </a>
-                </div>
-            </div>
-
-            <!-- Abstract Visual -->
-            <div class="relative hidden lg:flex justify-center items-center fade-up" style="transition-delay: 200ms;">
-                <div class="relative w-[400px] h-[400px]">
-                    <div class="absolute inset-0 border border-gray-700/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                    <div class="absolute inset-[40px] border border-dashed border-gray-600/50 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                    <!-- Central Element -->
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-40 h-40 bg-gradient-to-br from-gray-800 to-black rounded-full border border-gray-700 flex flex-col items-center justify-center shadow-2xl relative overflow-hidden z-10">
-                            <i class="fas fa-cogs text-4xl text-primary mb-2"></i>
-                            <span class="text-[10px] text-gray-400 tracking-widest uppercase">Engineer</span>
-                        </div>
-                    </div>
-                    <!-- Orbiting Stats -->
-                    <div class="absolute top-0 right-10 p-3 bg-gray-900/80 backdrop-blur rounded border border-gray-700 shadow-lg animate-bounce duration-[3000ms]">
-                        <span class="text-xs font-bold text-white">Ansys</span>
-                    </div>
-                    <div class="absolute bottom-10 left-10 p-3 bg-gray-900/80 backdrop-blur rounded border border-gray-700 shadow-lg animate-bounce duration-[4000ms]">
-                        <span class="text-xs font-bold text-white">SolidWorks</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Skills Marquee -->
-    <div class="border-y border-white/5 bg-black/20 backdrop-blur-sm py-6 overflow-hidden relative">
-        <div class="marquee-track">
-            <div class="flex gap-12 px-6 items-center whitespace-nowrap text-gray-400 font-mono text-sm font-semibold uppercase tracking-wider">
-                <span><i class="fas fa-industry text-primary mr-2"></i>Kaizen Optimization</span>
-                <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
-                <span><i class="fas fa-wind text-primary mr-2"></i>Ansys Fluent</span>
-                <span><i class="fas fa-camera text-primary mr-2"></i>Adobe Creative Suite</span>
-                <span><i class="fas fa-users text-primary mr-2"></i>Team Formation</span>
-                <span><i class="fas fa-car-battery text-primary mr-2"></i>EV Powertrains</span>
-                <!-- Duplicate -->
-                <span><i class="fas fa-industry text-primary mr-2"></i>Kaizen Optimization</span>
-                <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
-                <span><i class="fas fa-wind text-primary mr-2"></i>Ansys Fluent</span>
-                <span><i class="fas fa-camera text-primary mr-2"></i>Adobe Creative Suite</span>
-                <span><i class="fas fa-users text-primary mr-2"></i>Team Formation</span>
-                <span><i class="fas fa-car-battery text-primary mr-2"></i>EV Powertrains</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Education & Philosophy -->
-    <section id="about" class="py-32 relative">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-start">
+    <main id="content" class="min-h-screen pt-20">
+        <!-- Hero Section -->
+        <header class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
                 <div class="fade-up">
-                    <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// PROFILE</h2>
-                    <h3 class="text-4xl font-bold mb-8">Academic Foundation</h3>
-                    
-                    <div class="space-y-8">
-                        <!-- BUET -->
-                        <div class="relative pl-6 border-l-2 border-primary">
-                            <h4 class="text-xl font-bold text-white">B.Sc. Mechanical Engineering</h4>
-                            <p class="text-primary text-sm mb-1">Bangladesh University of Engineering & Technology (BUET)</p>
-                            <p class="text-gray-400 text-sm">2021 - 2026 (4th Year)</p>
-                            <p class="text-gray-500 text-sm mt-2">Focus: Automobile Engineering, Thermodynamics, Material Science.</p>
-                        </div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Automotive Engineering Focus
+                    </div>
 
-                        <!-- NDC -->
-                        <div class="relative pl-6 border-l-2 border-gray-700 hover:border-primary transition-colors">
-                            <h4 class="text-lg font-bold text-white">Higher Secondary Certificate</h4>
-                            <p class="text-gray-400 text-sm mb-1">Notre Dame College, Dhaka (2018-2020)</p>
-                            <p class="text-gray-500 text-sm">GPA 5.00 with Scholarship</p>
-                        </div>
+                    <h1 class="font-mono text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
+                        Advancing <br>
+                        <span class="text-primary typewriter" id="typewriter"></span>
+                    </h1>
 
-                        <!-- School -->
-                        <div class="relative pl-6 border-l-2 border-gray-700 hover:border-primary transition-colors">
-                            <h4 class="text-lg font-bold text-white">Secondary School Certificate</h4>
-                            <p class="text-gray-400 text-sm mb-1">Adarsha High School (2018)</p>
-                            <p class="text-gray-500 text-sm">GPA 5.00 | Talentpool Scholarship (Upazila First)</p>
-                        </div>
+                    <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-lg leading-relaxed">
+                        Mechanical Engineer & Entrepreneur. Founder of a government-funded EV startup. Bridging vehicle design, structural analysis, and operational efficiency.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="experience.html" class="group relative px-8 py-4 bg-white text-dark font-bold rounded-lg overflow-hidden transition-transform active:scale-95">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary to-blue-400 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+                            <span class="relative z-10 group-hover:text-white flex items-center gap-2">
+                                VIEW TRAJECTORY <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </a>
+
+                        <a href="projects.html" class="px-8 py-4 rounded-lg border border-slate-700 hover:border-primary text-slate-300 hover:text-white transition-all font-medium flex items-center gap-2">
+                            VIEW PROJECTS
+                        </a>
+                    </div>
+
+                    <div class="mt-8 flex gap-4">
+                        <a href="https://linkedin.com/in/rownakshahriarruhan/" target="_blank" class="text-slate-500 hover:text-primary transition-colors text-2xl">
+                             <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://facebook.com/rownakshahriarruhan" target="_blank" class="text-slate-500 hover:text-primary transition-colors text-2xl">
+                             <i class="fab fa-facebook"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="fade-up" style="transition-delay: 200ms;">
-                    <div class="glass-card p-8 rounded-2xl mb-6">
-                        <i class="fas fa-quote-left text-primary text-2xl mb-4"></i>
-                        <p class="text-gray-300 leading-relaxed text-lg">
-                            Passionate about applying technical skills and proven project success to advance sustainable mobility. Whether it's optimizing production lines or designing aerodynamic chassis, I build systems that work.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="glass-card p-6 rounded-2xl text-center">
-                            <i class="fas fa-award text-yellow-500 text-2xl mb-2"></i>
-                            <div class="font-bold text-2xl">Champion</div>
-                            <div class="text-xs text-gray-400 uppercase">SofE National</div>
-                        </div>
-                        <div class="glass-card p-6 rounded-2xl text-center">
-                            <i class="fas fa-handshake text-green-500 text-2xl mb-2"></i>
-                            <div class="font-bold text-2xl">Funded</div>
-                            <div class="text-xs text-gray-400 uppercase">Govt. ICT Division</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-32 bg-black/20">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-20 fade-up">
-                <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// TRAJECTORY</h2>
-                <h3 class="text-4xl font-bold">Professional Experience</h3>
-            </div>
-
-            <div class="space-y-12 relative">
-                <div class="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gray-800 -translate-x-1/2"></div>
-
-                <!-- TriChokro -->
-                <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center fade-up group">
-                    <div class="hidden md:block text-right">
-                        <span class="font-mono text-primary text-sm">Jan 2025 - Present</span>
-                    </div>
-                    <div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-dark border-2 border-primary rounded-full -translate-x-1/2 z-10"></div>
-                    <div class="pl-12 md:pl-0">
-                        <div class="glass-card p-8 rounded-2xl relative overflow-hidden border-primary/30">
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <h4 class="text-xl font-bold text-white">Founder & CEO</h4>
-                                    <p class="text-primary text-sm font-mono">TriChokro Automotives</p>
-                                </div>
-                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs border border-primary/20">Startup</span>
+                <!-- Abstract Visual -->
+                <div class="relative hidden lg:flex justify-center items-center fade-up" style="transition-delay: 200ms;">
+                    <div class="relative w-[400px] h-[400px]">
+                        <div class="absolute inset-0 border border-slate-700/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                        <div class="absolute inset-[40px] border border-dashed border-slate-600/50 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                        <!-- Central Element -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-40 h-40 bg-slate-900 rounded-full border border-slate-700 flex flex-col items-center justify-center shadow-2xl relative overflow-hidden z-10">
+                                <i class="fas fa-cogs text-4xl text-primary mb-2"></i>
+                                <span class="text-[10px] text-slate-400 tracking-widest uppercase">Engineer</span>
                             </div>
-                            <ul class="space-y-2 text-gray-400 text-sm list-disc list-inside mb-4">
-                                <li>Leading an 8-member team (including 3 PhDs) in government-funded EV manufacturing.</li>
-                                <li>Secured seed funding (UIHP) and developing mass production roadmap with <strong>Panna Group</strong>.</li>
-                                <li>Innovating "Trambulance" with aerodynamic chassis designed in SolidWorks/Ansys.</li>
-                            </ul>
+                        </div>
+                        <!-- Orbiting Stats -->
+                        <div class="absolute top-0 right-10 p-3 bg-slate-800/80 backdrop-blur rounded border border-slate-600 shadow-lg animate-bounce duration-[3000ms]">
+                            <span class="text-xs font-bold text-white">Ansys</span>
+                        </div>
+                        <div class="absolute bottom-10 left-10 p-3 bg-slate-800/80 backdrop-blur rounded border border-slate-600 shadow-lg animate-bounce duration-[4000ms]">
+                            <span class="text-xs font-bold text-white">SolidWorks</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- BYD -->
-                <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center fade-up group">
-                    <div class="pl-12 md:pl-0 md:text-right order-1 md:order-1">
-                        <div class="glass-card p-8 rounded-2xl hover-trigger">
-                            <div class="flex justify-between items-start mb-4 md:flex-row-reverse">
-                                <div>
-                                    <h4 class="text-xl font-bold text-white">Industrial Trainee</h4>
-                                    <p class="text-blue-400 text-sm font-mono">BYD Bangladesh</p>
-                                </div>
-                                <span class="bg-white/5 text-gray-400 px-2 py-1 rounded text-xs">Internship</span>
-                            </div>
-                            <p class="text-gray-400 text-sm">
-                                Gained hands-on experience in EV manufacturing processes, supply chain logistics, and business operations for a global NEV leader.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-dark border-2 border-gray-600 rounded-full -translate-x-1/2 z-10"></div>
-                    <div class="hidden md:block text-left pl-12 order-2">
-                        <span class="font-mono text-gray-500 text-sm">2021</span>
-                    </div>
-                </div>
-
-                <!-- Rahimafrooz -->
-                <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center fade-up group">
-                    <div class="hidden md:block text-right">
-                         <span class="font-mono text-gray-500 text-sm">2016 - Present (Intermittent)</span>
-                    </div>
-                    <div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-dark border-2 border-gray-600 rounded-full -translate-x-1/2 z-10"></div>
-                    <div class="pl-12 md:pl-0">
-                        <div class="glass-card p-8 rounded-2xl hover-trigger">
-                            <h4 class="text-xl font-bold text-white">Academic Intern</h4>
-                            <p class="text-orange-400 text-sm font-mono">Rahimafrooz Battery</p>
-                            <p class="text-gray-400 text-sm mt-2">
-                                Specialized training in battery manufacturing processes, maintenance protocols, and Kaizen optimization.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Projects & Innovations -->
-    <section id="projects" class="py-32">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// INNOVATION</h2>
-                <h3 class="text-4xl font-bold">Featured Projects</h3>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Trambulance -->
-                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover-trigger fade-up">
-                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-ambulance text-9xl"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-xs font-bold bg-yellow-500/10 text-yellow-500 px-3 py-1 rounded-full border border-yellow-500/20">National Champion</span>
-                            <span class="text-xs font-bold bg-white/5 text-gray-400 px-3 py-1 rounded-full">SofE 2025</span>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4">Project Trambulance</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            An efficiently designed, affordable tri-wheeled battery-powered ambulance. Features an innovative chassis and <span class="text-white">Aerodynamic Origami-inspired Hood System</span>.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-primary">
-                            <span class="border border-primary/20 px-2 py-1 rounded">SolidWorks</span>
-                            <span class="border border-primary/20 px-2 py-1 rounded">Ansys CFD</span>
-                            <span class="border border-primary/20 px-2 py-1 rounded">SketchUp</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TriChokro Model -->
-                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover-trigger fade-up" style="transition-delay: 100ms;">
-                     <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-charging-station text-9xl"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-xs font-bold bg-green-500/10 text-green-500 px-3 py-1 rounded-full border border-green-500/20">BUET Champion</span>
-                            <span class="text-xs font-bold bg-white/5 text-gray-400 px-3 py-1 rounded-full">UIHP 2025</span>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4">TriChokro Easy Bike</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            An improved, scientifically modeled auto-rickshaw design. Rigorous market analysis and iterative simulations conducted. Mass production deal in progress.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-primary">
-                            <span class="border border-primary/20 px-2 py-1 rounded">Market Analysis</span>
-                            <span class="border border-primary/20 px-2 py-1 rounded">Prototype</span>
-                            <span class="border border-primary/20 px-2 py-1 rounded">Business Roadmap</span>
-                        </div>
-                    </div>
+        <!-- Skills Marquee -->
+        <div class="border-y border-white/5 bg-black/20 backdrop-blur-sm py-6 overflow-hidden relative">
+            <div class="marquee-track">
+                <div class="flex gap-12 px-6 items-center whitespace-nowrap text-slate-400 font-mono text-sm font-semibold uppercase tracking-wider">
+                    <span><i class="fas fa-industry text-primary mr-2"></i>Kaizen Optimization</span>
+                    <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
+                    <span><i class="fas fa-wind text-primary mr-2"></i>Ansys Fluent</span>
+                    <span><i class="fas fa-camera text-primary mr-2"></i>Adobe Creative Suite</span>
+                    <span><i class="fas fa-users text-primary mr-2"></i>Team Formation</span>
+                    <span><i class="fas fa-car-battery text-primary mr-2"></i>EV Powertrains</span>
+                    <!-- Duplicate -->
+                    <span><i class="fas fa-industry text-primary mr-2"></i>Kaizen Optimization</span>
+                    <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
+                    <span><i class="fas fa-wind text-primary mr-2"></i>Ansys Fluent</span>
+                    <span><i class="fas fa-camera text-primary mr-2"></i>Adobe Creative Suite</span>
+                    <span><i class="fas fa-users text-primary mr-2"></i>Team Formation</span>
+                    <span><i class="fas fa-car-battery text-primary mr-2"></i>EV Powertrains</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Leadership & Volunteering (NEW SECTION) -->
-    <section id="leadership" class="py-32 bg-black/20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-12 fade-up">
-                <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// BEYOND ENGINEERING</h2>
-                <h3 class="text-4xl font-bold">Leadership & Volunteering</h3>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Wikimedia -->
-                <div class="glass-card p-6 rounded-xl hover-trigger fade-up">
-                    <i class="fab fa-wikipedia-w text-3xl mb-4 text-white"></i>
-                    <h4 class="font-bold text-lg mb-1">Wikimedia BD</h4>
-                    <p class="text-xs text-primary mb-2">Executive Member</p>
-                    <p class="text-xs text-gray-400">Reviewer, Rollbacker & Jury for Bangla/English Wikipedia.</p>
-                </div>
-
-                <!-- Ronograph -->
-                <div class="glass-card p-6 rounded-xl hover-trigger fade-up" style="transition-delay: 100ms;">
-                    <i class="fas fa-camera-retro text-3xl mb-4 text-pink-500"></i>
-                    <h4 class="font-bold text-lg mb-1">Ronograph</h4>
-                    <p class="text-xs text-primary mb-2">Founder</p>
-                    <p class="text-xs text-gray-400">Photographic agency & instructor. Professional photography.</p>
-                </div>
-
-                <!-- Prohoranto -->
-                <div class="glass-card p-6 rounded-xl hover-trigger fade-up" style="transition-delay: 200ms;">
-                    <i class="fas fa-newspaper text-3xl mb-4 text-white"></i>
-                    <h4 class="font-bold text-lg mb-1">Prohoranto</h4>
-                    <p class="text-xs text-primary mb-2">Chief Editor</p>
-                    <p class="text-xs text-gray-400">Online newspaper run by BUETians. Strategist & Editor.</p>
-                </div>
-
-                 <!-- ICME -->
-                 <div class="glass-card p-6 rounded-xl hover-trigger fade-up" style="transition-delay: 300ms;">
-                    <i class="fas fa-globe text-3xl mb-4 text-blue-400"></i>
-                    <h4 class="font-bold text-lg mb-1">ICME 2025</h4>
-                    <p class="text-xs text-primary mb-2">Host & Organizer</p>
-                    <p class="text-xs text-gray-400">Managed logistics for international delegates.</p>
-                </div>
-            </div>
+        <div class="py-20 text-center">
+             <p class="text-slate-500 font-mono text-sm">Explore my work through the navigation above.</p>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer / Contact -->
-    <footer class="py-20 relative border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-8">Ready to Innovate?</h2>
-            
-            <div class="flex justify-center gap-6 mb-12">
-                <a href="mailto:rownakshahriarruhan@gmail.com" class="glass-card px-6 py-3 rounded-full hover:bg-white/10 flex items-center gap-2 transition-all">
-                    <i class="fas fa-envelope"></i> Email Me
-                </a>
-                <a href="tel:+8801714844677" class="glass-card px-6 py-3 rounded-full hover:bg-white/10 flex items-center gap-2 transition-all">
-                    <i class="fas fa-phone"></i> Call
-                </a>
-            </div>
-
-            <p class="text-gray-500 text-sm font-mono">
-                &copy; 2026 Rownak Shahriar Ruhan. <br>
-                Based in Kazi Nazrul Islam Hall, BUET, Dhaka.
-            </p>
+    <footer class="py-12 border-t border-white/5 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm font-mono">
+            &copy; 2026 Rownak Shahriar Ruhan. Engineering Portfolio.
         </div>
     </footer>
 
-    <script>
-        // --- Typewriter ---
-        const typeWriterElement = document.getElementById('typewriter');
-        const phrases = ["Sustainable Mobility", "Electric Vehicles", "Government Projects", "Aerodynamic Design"];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                typeWriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typeWriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                setTimeout(type, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(type, 500);
-            } else {
-                setTimeout(type, isDeleting ? 50 : 100);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', type);
-
-        // --- Intersection Observer ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-
-        // --- Cursor Logic ---
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        if (window.matchMedia("(pointer: fine)").matches) {
-            window.addEventListener('mousemove', (e) => {
-                cursorDot.style.left = `${e.clientX}px`;
-                cursorDot.style.top = `${e.clientY}px`;
-                cursorOutline.animate({
-                    left: `${e.clientX}px`,
-                    top: `${e.clientY}px`
-                }, { duration: 500, fill: "forwards" });
-            });
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
