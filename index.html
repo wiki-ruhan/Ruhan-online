@@ -1,1 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rownak Shahriar Ruhan | Visionary Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#050a14',
+                        card: 'rgba(20, 25, 40, 0.6)',
+                        primary: '#38bdf8', // Electric Blue
+                        secondary: '#6366f1', // Indigo
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
 
+    <style>
+        /* --- CORE AESTHETICS --- */
+        body {
+            background-color: #050a14;
+            color: #f8fafc;
+            cursor: none; /* Hide default cursor */
+            overflow-x: hidden;
+        }
+
+        /* Noise Texture for that "Premium" feel */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 90;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Tech Grid Background */
+        .tech-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background-color: #38bdf8;
+            box-shadow: 0 0 10px #38bdf8;
+        }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        
+        /* Hover States for Cursor */
+        body:has(a:hover, button:hover, .hover-trigger:hover) .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(56, 189, 248, 0.1);
+            border-color: #38bdf8;
+        }
+
+        /* --- COMPONENTS --- */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.4));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(56, 189, 248, 0.15);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #f8fafc 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out;
+            z-index: -2;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        /* Marquee */
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Schematic Line for Timeline */
+        .schematic-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #334155 10%, #334155 90%, transparent);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-dark">
+
+    <!-- Overlays -->
+    <div class="noise-overlay"></div>
+    <div class="tech-grid"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <!-- Background Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="blob bg-blue-600/30 w-96 h-96 top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="blob bg-indigo-600/30 w-80 h-80 bottom-0 right-0 translate-x-1/3 translate-y-1/3 animation-delay-2000"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-panel border-b-0 border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-2xl font-mono font-bold tracking-tighter hover-trigger">
+                RS<span class="text-primary">RUHAN</span><span class="text-xs align-top text-gray-500 ml-1">B.Sc</span>
+            </a>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors hover-trigger">ABOUT</a>
+                <a href="#experience" class="hover:text-white transition-colors hover-trigger">EXPERIENCE</a>
+                <a href="#ventures" class="hover:text-white transition-colors hover-trigger">VENTURES</a>
+                <a href="#contact" class="hover:text-white transition-colors hover-trigger">CONTACT</a>
+            </div>
+
+            <a href="mailto:contact@rsruhan.com" class="hidden md:flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-all hover-trigger text-sm font-bold">
+                <i class="fas fa-envelope"></i> LET'S TALK
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            
+            <div class="fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    System Online
+                </div>
+                
+                <h1 class="font-mono text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    Building the <br>
+                    <span class="text-gradient-accent typewriter" id="typewriter"></span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-lg leading-relaxed">
+                    Mechanical Engineer & Founder bridging the gap between deep-tech research and real-world mobility solutions.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#ventures" class="hover-trigger group relative px-8 py-4 bg-white text-dark font-bold rounded-lg overflow-hidden transition-transform active:scale-95">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-indigo-400 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+                        <span class="relative z-10 group-hover:text-white flex items-center gap-2">
+                            VIEW VENTURES <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/rsruhan" target="_blank" class="hover-trigger px-8 py-4 rounded-lg border border-gray-700 hover:border-primary text-gray-300 hover:text-white transition-all font-medium flex items-center gap-2">
+                        <i class="fab fa-linkedin text-xl"></i> LINKEDIN
+                    </a>
+                </div>
+            </div>
+
+            <!-- Abstract Visual -->
+            <div class="relative hidden lg:flex justify-center items-center fade-up" style="transition-delay: 200ms;">
+                <div class="relative w-[400px] h-[400px]">
+                    <!-- Spinning Rings -->
+                    <div class="absolute inset-0 border border-gray-700/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-[40px] border border-dashed border-gray-600/50 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                    <div class="absolute inset-[80px] border border-primary/20 rounded-full animate-[pulse_3s_ease-in-out_infinite]"></div>
+                    
+                    <!-- Center content -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-32 h-32 bg-gradient-to-br from-gray-800 to-black rounded-2xl border border-gray-700 flex items-center justify-center shadow-2xl relative overflow-hidden">
+                            <div class="absolute inset-0 bg-primary/10"></div>
+                            <i class="fas fa-microchip text-5xl text-primary/80"></i>
+                        </div>
+                    </div>
+
+                    <!-- Floating Icons -->
+                    <div class="absolute top-0 right-10 p-3 bg-gray-900/80 backdrop-blur rounded-lg border border-gray-700 shadow-lg animate-bounce duration-[3000ms]">
+                        <i class="fas fa-car-battery text-secondary text-xl"></i>
+                    </div>
+                    <div class="absolute bottom-10 left-10 p-3 bg-gray-900/80 backdrop-blur rounded-lg border border-gray-700 shadow-lg animate-bounce duration-[4000ms]">
+                        <i class="fas fa-leaf text-green-400 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+            <span class="text-[10px] uppercase tracking-widest text-primary">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+        </div>
+    </header>
+
+    <!-- Infinite Skill Marquee -->
+    <div class="border-y border-white/5 bg-black/20 backdrop-blur-sm py-6 overflow-hidden relative">
+        <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-dark to-transparent z-10"></div>
+        <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-dark to-transparent z-10"></div>
+        
+        <div class="marquee-track">
+            <!-- Content repeated for seamless loop -->
+            <div class="flex gap-12 px-6 items-center whitespace-nowrap text-gray-400 font-mono text-sm font-semibold uppercase tracking-wider">
+                <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
+                <span><i class="fas fa-code text-primary mr-2"></i>Python & MATLAB</span>
+                <span><i class="fas fa-bolt text-primary mr-2"></i>EV Powertrains</span>
+                <span><i class="fas fa-wind text-primary mr-2"></i>ANSYS Fluent</span>
+                <span><i class="fas fa-atom text-primary mr-2"></i>Material Science</span>
+                <span><i class="fas fa-project-diagram text-primary mr-2"></i>Project Mgmt</span>
+                <!-- Duplicate -->
+                <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
+                <span><i class="fas fa-code text-primary mr-2"></i>Python & MATLAB</span>
+                <span><i class="fas fa-bolt text-primary mr-2"></i>EV Powertrains</span>
+                <span><i class="fas fa-wind text-primary mr-2"></i>ANSYS Fluent</span>
+                <span><i class="fas fa-atom text-primary mr-2"></i>Material Science</span>
+                <span><i class="fas fa-project-diagram text-primary mr-2"></i>Project Mgmt</span>
+                 <!-- Duplicate 2 -->
+                 <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
+                 <span><i class="fas fa-code text-primary mr-2"></i>Python & MATLAB</span>
+                 <span><i class="fas fa-bolt text-primary mr-2"></i>EV Powertrains</span>
+                 <span><i class="fas fa-wind text-primary mr-2"></i>ANSYS Fluent</span>
+                 <span><i class="fas fa-atom text-primary mr-2"></i>Material Science</span>
+                 <span><i class="fas fa-project-diagram text-primary mr-2"></i>Project Mgmt</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="fade-up">
+                    <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// PHILOSOPHY</h2>
+                    <h3 class="text-4xl font-bold mb-8">The Engineer's Mindset</h3>
+                    
+                    <div class="space-y-6 text-gray-400 leading-relaxed">
+                        <p>
+                            My journey began at <strong class="text-white">BUET</strong>, exploring the intersection of metallurgy and mechanics. Today, I leverage that foundation to build sustainable automotive ecosystems.
+                        </p>
+                        <p>
+                            I don't just design parts; I design systems. From the microstructure of Na-ion batteries to the logistics of an electric ambulance fleet, I focus on <span class="text-white border-b border-primary/50 pb-0.5">efficiency, sustainability, and social impact</span>.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 p-6 rounded-xl bg-gradient-to-r from-gray-800/50 to-transparent border-l-4 border-primary">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                                <i class="fas fa-graduation-cap text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">B.Sc. Mechanical Engineering</h4>
+                                <p class="text-gray-400 text-sm">Bangladesh University of Engineering & Technology</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 fade-up" style="transition-delay: 200ms;">
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center justify-center aspect-square hover-trigger">
+                        <i class="fas fa-rocket text-4xl text-secondary mb-4"></i>
+                        <h4 class="text-3xl font-bold text-white mb-1">Founder</h4>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">TriChokro</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center justify-center aspect-square hover-trigger">
+                        <i class="fas fa-award text-4xl text-yellow-500 mb-4"></i>
+                        <h4 class="text-3xl font-bold text-white mb-1">02</h4>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">National Titles</p>
+                    </div>
+                    <div class="col-span-2 glass-card p-8 rounded-2xl flex items-center justify-between hover-trigger">
+                        <div class="text-left">
+                            <h4 class="text-4xl font-bold text-white mb-1">3+ Years</h4>
+                            <p class="text-sm text-gray-400">Dedicated R&D in EV Technology</p>
+                        </div>
+                        <i class="fas fa-charging-station text-5xl text-green-500/50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 bg-black/20">
+        <div class="max-w-4xl mx-auto px-6 relative">
+            <div class="text-center mb-20 fade-up">
+                <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// TRAJECTORY</h2>
+                <h3 class="text-4xl font-bold">Professional Experience</h3>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative pl-8 md:pl-0">
+                <!-- Center Line for Desktop -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/30 to-primary/0 -translate-x-1/2"></div>
+                
+                <!-- Left Line for Mobile -->
+                <div class="md:hidden schematic-line"></div>
+
+                <!-- Item 1 (Right) -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-12 mb-16 items-center fade-up group">
+                    <div class="hidden md:block text-right">
+                        <span class="font-mono text-primary text-sm">Jan 2025 - Present</span>
+                    </div>
+                    
+                    <!-- Dot -->
+                    <div class="absolute left-[19px] md:left-1/2 top-0 w-3 h-3 bg-dark border-2 border-primary rounded-full z-10 -translate-x-1/2 group-hover:bg-primary group-hover:scale-150 transition-all duration-300 shadow-[0_0_10px_rgba(56,189,248,0.5)]"></div>
+
+                    <div class="pl-8 md:pl-0">
+                        <div class="glass-card p-8 rounded-2xl hover-trigger relative overflow-hidden">
+                            <!-- Subtle highlight effect -->
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                            
+                            <h4 class="text-xl font-bold text-white mb-1">Founder & Lead Engineer</h4>
+                            <p class="text-gray-400 mb-4 text-sm font-mono">TriChokro Automotives</p>
+                            
+                            <ul class="space-y-2 text-gray-400 text-sm mb-6 list-disc list-inside marker:text-primary">
+                                <li>Leading R&D for the "Trambulance," a specialized electric ambulance.</li>
+                                <li>Developing modular cargo haulers for last-mile logistics.</li>
+                                <li>Overseeing prototyping & government compliance (UIHP).</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-primary border border-white/5">EV Design</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-primary border border-white/5">Supply Chain</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 (Left) -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-12 mb-16 items-center fade-up group">
+                     <!-- Dot -->
+                     <div class="absolute left-[19px] md:left-1/2 top-0 w-3 h-3 bg-dark border-2 border-gray-600 rounded-full z-10 -translate-x-1/2 group-hover:border-primary group-hover:scale-125 transition-all"></div>
+
+                    <div class="order-2 pl-8 md:pl-0">
+                        <div class="glass-card p-8 rounded-2xl hover-trigger">
+                            <h4 class="text-xl font-bold text-white mb-1">Host & Organizer</h4>
+                            <p class="text-gray-400 mb-4 text-sm font-mono">ICME 2025</p>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Coordinated one of the largest mechanical engineering conferences. Managed logistics for international delegates and renewable energy sessions.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-300">Management</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-300">Networking</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block order-1 text-right">
+                         <span class="font-mono text-gray-500 text-sm">Dec 2025</span>
+                    </div>
+                </div>
+
+                <!-- Item 3 (Right) -->
+                 <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center fade-up group">
+                    <div class="hidden md:block text-right">
+                        <span class="font-mono text-gray-500 text-sm">2024</span>
+                    </div>
+                    
+                    <!-- Dot -->
+                    <div class="absolute left-[19px] md:left-1/2 top-0 w-3 h-3 bg-dark border-2 border-gray-600 rounded-full z-10 -translate-x-1/2 group-hover:border-primary group-hover:scale-125 transition-all"></div>
+
+                    <div class="pl-8 md:pl-0">
+                        <div class="glass-card p-8 rounded-2xl hover-trigger">
+                            <h4 class="text-xl font-bold text-white mb-1">R&D Intern</h4>
+                            <p class="text-gray-400 mb-4 text-sm font-mono">Metrocem Automobiles</p>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Optimized vehicle assembly lines. Conducted quality control analysis and proposed efficiency improvements for the manufacturing floor.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-300">QC</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-300">AutoCAD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures & Awards -->
+    <section id="ventures" class="py-32">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-up">
+                <div>
+                    <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// HIGHLIGHTS</h2>
+                    <h3 class="text-4xl font-bold">Ventures & Recognition</h3>
+                </div>
+                <div class="hidden md:block w-32 h-1 bg-gray-800 rounded-full mt-4 md:mt-0">
+                    <div class="w-1/2 h-full bg-primary rounded-full"></div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl relative group overflow-hidden fade-up hover-trigger">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-trophy text-8xl"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <i class="fas fa-trophy text-yellow-500 text-3xl mb-6"></i>
+                        <h4 class="text-xl font-bold mb-2">Speak Out for Engineering</h4>
+                        <p class="text-primary text-sm font-mono mb-4">Champion | IMechE 2025</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Won the national competition for effectively communicating complex engineering solutions to a non-technical audience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl relative group overflow-hidden fade-up hover-trigger" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-lightbulb text-8xl"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <i class="fas fa-lightbulb text-red-500 text-3xl mb-6"></i>
+                        <h4 class="text-xl font-bold mb-2">UIHP Innovation Project</h4>
+                        <p class="text-primary text-sm font-mono mb-4">Champion | Govt. of Bangladesh</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Recognized by the ICT Division for TriChokro's potential to revolutionize urban mobility.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl relative group overflow-hidden fade-up hover-trigger" style="transition-delay: 200ms;">
+                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-leaf text-8xl"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <i class="fas fa-leaf text-green-500 text-3xl mb-6"></i>
+                        <h4 class="text-xl font-bold mb-2">Honda YES Award</h4>
+                        <p class="text-primary text-sm font-mono mb-4">Applicant | 2025</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Demonstrated excellence in eco-technology and leadership in the automotive sector.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/10 to-transparent"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-up">
+            <h2 class="text-5xl md:text-6xl font-bold mb-8 tracking-tight">Let's Build the <span class="text-gradient-accent">Future.</span></h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-xl mx-auto">
+                Interested in collaboration, EV technology, or just want to talk cars? My inbox is always open.
+            </p>
+            
+            <a href="mailto:contact@rsruhan.com" class="hover-trigger inline-flex items-center gap-3 px-10 py-5 bg-white text-dark rounded-full font-bold text-lg hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300">
+                <i class="fas fa-paper-plane text-secondary"></i> Get in Touch
+            </a>
+
+            <div class="mt-20 flex justify-center gap-8">
+                <a href="#" class="text-gray-500 hover:text-white text-2xl transition-colors hover-trigger"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white text-2xl transition-colors hover-trigger"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white text-2xl transition-colors hover-trigger"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <footer class="mt-20 pt-10 border-t border-white/5 text-gray-600 text-sm font-mono">
+                &copy; 2026 Rownak Shahriar Ruhan. Engineered with Precision.
+            </footer>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // --- Typewriter Effect ---
+        const typeWriterElement = document.getElementById('typewriter');
+        const phrases = [
+            "Sustainable Mobility", 
+            "Electric Vehicles", 
+            "High-Performance Systems", 
+            "Eco-Tech Solutions"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typeWriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                typeWriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start typewriter
+        document.addEventListener('DOMContentLoaded', type);
+
+        // --- Custom Cursor ---
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        // Only activate custom cursor on non-touch devices
+        if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+
+                // Dot follows instantly
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+
+                // Outline follows with lag (handled via CSS transition)
+                cursorOutline.style.left = `${posX}px`;
+                cursorOutline.style.top = `${posY}px`;
+            });
+        } else {
+            // Hide cursor elements on touch devices
+            cursorDot.style.display = 'none';
+            cursorOutline.style.display = 'none';
+        }
+
+        // --- Intersection Observer for Fade Up ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+        // --- Nav Scroll Effect ---
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-dark/80', 'backdrop-blur-xl', 'shadow-lg');
+                nav.classList.remove('border-b-0');
+                nav.classList.add('border-b', 'border-white/10');
+            } else {
+                nav.classList.remove('bg-dark/80', 'backdrop-blur-xl', 'shadow-lg', 'border-b', 'border-white/10');
+                nav.classList.add('border-b-0');
+            }
+        });
+
+    </script>
+</body>
+</html>
