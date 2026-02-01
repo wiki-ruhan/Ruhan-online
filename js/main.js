@@ -26,10 +26,14 @@ async function navigateTo(url) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
             const newContent = doc.getElementById('content').innerHTML;
+            const newNav = doc.querySelector('nav');
+            const newFooter = doc.querySelector('footer');
             const newTitle = doc.title;
 
             // Update State
             document.title = newTitle;
+            if (newNav) document.querySelector('nav').replaceWith(newNav);
+            if (newFooter) document.querySelector('footer').replaceWith(newFooter);
             main.innerHTML = newContent;
             window.history.pushState({}, '', url);
 
