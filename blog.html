@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Rownak Shahriar Ruhan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        primary: '#0ea5e9',
+                        secondary: '#64748b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white bg-dark">
+    <div class="tech-bg"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-mono font-bold tracking-tighter text-white">
+                RS<span class="text-primary">RUHAN</span>
+            </a>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-slate-400">
+                <a href="profile.html" class="hover:text-primary transition-colors">PROFILE</a>
+                <a href="experience.html" class="hover:text-primary transition-colors">EXPERIENCE</a>
+                <a href="projects.html" class="hover:text-primary transition-colors">PROJECTS</a>
+                <a href="leadership.html" class="hover:text-primary transition-colors">LEADERSHIP</a>
+                <a href="blog.html" class="text-primary hover:text-primary transition-colors">BLOG</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="blog_bn.html" class="text-sm font-bold text-slate-400 hover:text-white transition-colors">BN</a>
+                <span class="text-slate-600">|</span>
+                <span class="text-sm font-bold text-primary">EN</span>
+
+                <a href="mailto:rownakshahriarruhan@gmail.com" class="hidden md:flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-all text-sm font-bold ml-4">
+                    <i class="fas fa-envelope"></i> CONTACT
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="content" class="pt-24 min-h-screen">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// ENGINEERING INSIGHTS</h2>
+                <h3 class="text-3xl font-bold text-white">Latest Articles</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Post 1 -->
+                <article class="tech-card rounded-2xl overflow-hidden hover-trigger fade-up group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        <!-- Placeholder visual -->
+                        <div class="w-full h-full flex items-center justify-center text-slate-600">
+                            <i class="fas fa-car-side text-6xl group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3 text-xs font-mono text-primary">
+                            <span>Structural Analysis</span>
+                            <span class="w-1 h-1 rounded-full bg-slate-500"></span>
+                            <span>May 15, 2025</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Optimizing EV Chassis Rigidity</h4>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Exploring the trade-offs between weight reduction and torsional stiffness in electric vehicle chassis design using Ansys simulations.
+                        </p>
+                        <a href="#" class="text-sm font-bold text-white hover:text-primary flex items-center gap-2">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="tech-card rounded-2xl overflow-hidden hover-trigger fade-up group" style="transition-delay: 100ms;">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        <div class="w-full h-full flex items-center justify-center text-slate-600">
+                             <i class="fas fa-charging-station text-6xl group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3 text-xs font-mono text-primary">
+                            <span>Market Research</span>
+                            <span class="w-1 h-1 rounded-full bg-slate-500"></span>
+                            <span>Apr 22, 2025</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">The Future of Tri-Wheeler Mobility</h4>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Analyzing the socio-economic impact of electric auto-rickshaws in Dhaka and the roadmap for sustainable mass production.
+                        </p>
+                        <a href="#" class="text-sm font-bold text-white hover:text-primary flex items-center gap-2">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="tech-card rounded-2xl overflow-hidden hover-trigger fade-up group" style="transition-delay: 200ms;">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        <div class="w-full h-full flex items-center justify-center text-slate-600">
+                             <i class="fas fa-industry text-6xl group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3 text-xs font-mono text-primary">
+                            <span>Industrial Eng.</span>
+                            <span class="w-1 h-1 rounded-full bg-slate-500"></span>
+                            <span>Mar 10, 2025</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Kaizen in Battery Manufacturing</h4>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            A case study on implementing continuous improvement protocols at Rahimafrooz to reduce waste and increase throughput.
+                        </p>
+                        <a href="#" class="text-sm font-bold text-white hover:text-primary flex items-center gap-2">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-white/5 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm font-mono">
+            &copy; 2026 Rownak Shahriar Ruhan. Engineering Portfolio.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
