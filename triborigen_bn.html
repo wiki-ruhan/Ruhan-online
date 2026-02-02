@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triborigen | রওনক শাহরিয়ার রুহান</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        primary: '#0ea5e9',
+                        secondary: '#64748b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white bg-dark">
+    <div class="tech-bg"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index_bn.html" class="text-2xl font-mono font-bold tracking-tighter text-white">
+                RS<span class="text-primary">RUHAN</span>
+            </a>
+
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-slate-400">
+                <a href="profile_bn.html" class="hover:text-primary transition-colors">প্রোফাইল</a>
+                <a href="experience_bn.html" class="hover:text-primary transition-colors">অভিজ্ঞতা</a>
+                <a href="projects_bn.html" class="hover:text-primary transition-colors">প্রজেক্ট</a>
+                <a href="leadership_bn.html" class="hover:text-primary transition-colors">লিডারশিপ</a>
+                <a href="blog_bn.html" class="hover:text-primary transition-colors">ব্লগ</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <span class="text-sm font-bold text-primary">BN</span>
+                <span class="text-slate-600">|</span>
+                <a href="triborigen_en.html" class="text-sm font-bold text-slate-400 hover:text-white transition-colors">EN</a>
+
+                <a href="mailto:rownakshahriarruhan@gmail.com" class="hidden md:flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-all text-sm font-bold ml-4">
+                    <i class="fas fa-envelope"></i> যোগাযোগ
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="content" class="pt-24 min-h-screen">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="font-mono text-primary tracking-widest text-sm font-bold mb-2">/// সিস্টার কনসার্ন</h2>
+                <h3 class="text-3xl font-bold text-white">Triborigen</h3>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="tech-card p-8 rounded-3xl relative overflow-hidden group hover-trigger fade-up">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-network-wired text-9xl text-white"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold mb-4 text-white">Triborigen</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                            ত্রিচক্র অটোমোটিভস-এর একটি সিস্টার কনসার্ন, যা টেকসই গতিশীলতা সমাধান এবং প্রকৌশল উদ্ভাবনের বাস্তুতন্ত্র সম্প্রসারণে কাজ করছে।
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-primary">
+                            <span class="border border-primary/20 px-2 py-1 rounded">উদ্ভাবন</span>
+                            <span class="border border-primary/20 px-2 py-1 rounded">প্রকৌশল</span>
+                            <span class="border border-primary/20 px-2 py-1 rounded">টেকসইতা</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-white/5 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm font-mono">
+            &copy; ২০২৬ রওনক শাহরিয়ার রুহান। ইঞ্জিনিয়ারিং পোর্টফোলিও।
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
