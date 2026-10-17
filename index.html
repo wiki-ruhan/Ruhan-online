@@ -1,245 +1,479 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rownak Shahriar Ruhan | Automotive Engineer & Founder</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: '#0f172a',
-                        primary: '#0ea5e9',
-                        secondary: '#64748b',
-                    },
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['Space Grotesk', 'monospace'],
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Rownak Shahriar Ruhan | Automotive Engineer (BUET) & Founder of TriChokro</title>
+  <meta name="title" content="Rownak Shahriar Ruhan | Automotive Engineer (BUET) & Founder of TriChokro">
+  <meta name="description" content="Official portfolio of A.A.M. Rownak Shahriar Ruhan — Mechanical Engineer at BUET and Founder & CEO of TriChokro Automotives. Creator of TRC-Pathfinder, Project Trambulance, TribOriGen, and TriMateria.">
+  <meta name="keywords" content="Rownak Shahriar Ruhan, A.A.M. Rownak Shahriar Ruhan, TriChokro Automotives, TRC-Pathfinder, Project Trambulance, TribOriGen, TriMateria, BUET Mechanical Engineering, EV Startup Bangladesh, IMechE SOfE Champion 2025, Ronograph, Prohoranto">
+  <meta name="author" content="Rownak Shahriar Ruhan">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://www.ruhan.online/">
+
+  <!-- Open Graph / Facebook / LinkedIn Sharing -->
+  <meta property="og:type" content="profile">
+  <meta property="profile:first_name" content="Rownak Shahriar">
+  <meta property="profile:last_name" content="Ruhan">
+  <meta property="og:site_name" content="Rownak Shahriar Ruhan">
+  <meta property="og:title" content="Rownak Shahriar Ruhan | Automotive Engineer & Founder of TriChokro">
+  <meta property="og:description" content="Mechanical Engineer (BUET) & Founder of TriChokro Automotives. Engineering safe electric tri-wheelers (TRC-Pathfinder, Trambulance) and sustainable materials in Bangladesh.">
+  <meta property="og:url" content="https://www.ruhan.online/">
+  <meta property="og:image" content="https://www.ruhan.online/rownak-shahriar-ruhan.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rownak Shahriar Ruhan | Automotive Engineer & EV Founder">
+  <meta name="twitter:description" content="Mechanical Engineer at BUET & Founder of TriChokro Automotives. Building next-generation electric mobility and sustainable materials in Bangladesh.">
+  <meta name="twitter:image" content="https://www.ruhan.online/rownak-shahriar-ruhan.jpg">
+
+  <!-- Unified JSON-LD Knowledge Graph Schema (Person + Organization + WebSite) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.ruhan.online/#person",
+        "name": "Rownak Shahriar Ruhan",
+        "alternateName": [
+          "A.A.M. Rownak Shahriar Ruhan",
+          "রওনক শাহরিয়ার রুহান"
+        ],
+        "url": "https://www.ruhan.online/",
+        "image": "https://www.ruhan.online/rownak-shahriar-ruhan.jpg",
+        "email": "mailto:rownakshahriarruhan@gmail.com",
+        "jobTitle": "Founder & CEO",
+        "description": "Mechanical Engineer from Bangladesh University of Engineering and Technology (BUET) and Founder of TriChokro Automotives, specializing in electric vehicle R&D, structural simulation, and sustainable urban mobility.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kazi Nazrul Islam Hall & ME Building, BUET, Palashi",
+          "addressLocality": "Dhaka",
+          "postalCode": "1000",
+          "addressCountry": "BD"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Bangladesh University of Engineering and Technology (BUET)",
+          "url": "https://www.buet.ac.bd/",
+          "department": "Department of Mechanical Engineering"
+        },
+        "worksFor": {
+          "@id": "https://trichokro.com/#organization"
+        },
+        "award": [
+          "Champion, IMechE Speak Out for Engineering (SOfE) Final 2025 (South Asian Region Finalist)",
+          "BUET Champion & 80,000 BDT Grant Winner, UIHP (ICT Division) 2025",
+          "$3,500 USD Venture Grant Recipient, First Flight Venture",
+          "Sustainability Award, Bangkok Business Challenge 2026"
+        ],
+        "knowsAbout": [
+          "Electric Vehicle Design",
+          "Automotive Engineering",
+          "Ansys Structural & Thermal Simulation",
+          "SolidWorks 3D CAD",
+          "Regenerative Braking & Thermal Brake Fade",
+          "Triple Hydraulic Disc Braking Systems",
+          "MacPherson Strut Suspension",
+          "Kaizen Manufacturing Optimization",
+          "Sustainable Bio-Composites & GTR Elastomers"
+        ],
+        "memberOf": [
+          { "@type": "Organization", "name": "Wikimedia Bangladesh", "roleName": "Executive Member" },
+          { "@type": "Organization", "name": "Prohoranto", "roleName": "Chief Editor" },
+          { "@type": "Organization", "name": "Ronograph", "roleName": "Founder" },
+          { "@type": "Organization", "name": "CSTPD", "roleName": "Official Member" }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/rownakshahriarruhan/",
+          "https://www.facebook.com/rownakshahriarruhan/",
+          "https://www.facebook.com/profile.php?id=61577812382585",
+          "https://trichokro.com/",
+          "http://trichokro.com/pathfinder.html",
+          "https://trichokro.blogspot.com/"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://trichokro.com/#organization",
+        "name": "TriChokro Automotives",
+        "url": "https://trichokro.com/",
+        "founder": {
+          "@id": "https://www.ruhan.online/#person"
+        },
+        "foundingDate": "2024",
+        "email": "trichokro.automotives@gmail.com",
+        "sameAs": [
+          "https://trichokro.com/",
+          "https://www.facebook.com/profile.php?id=61577812382585",
+          "https://trichokro.blogspot.com/"
+        ],
+        "subOrganization": [
+          {
+            "@type": "Organization",
+            "name": "TribOriGen",
+            "description": "Circular economy venture turning waste tires into durable Ground Tire Rubber (GTR) elastomers."
+          },
+          {
+            "@type": "Organization",
+            "name": "TriMateria",
+            "description": "Sustainable material science venture developing eco-efficient automotive bio-composites."
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.ruhan.online/#website",
+        "url": "https://www.ruhan.online/",
+        "name": "Rownak Shahriar Ruhan — Official Portfolio",
+        "publisher": {
+          "@id": "https://www.ruhan.online/#person"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#070B14',
+              card: '#111827',
+              accent: '#10B981',
+              cyan: '#06B6D4'
             }
+          }
         }
-    </script>
-    <style>
-        /* Marquee Specific */
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: scroll 40s linear infinite;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white bg-dark">
-    <div class="tech-bg"></div>
-    
-    <!-- Nav -->
-    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-mono font-bold tracking-tighter text-white">
-                RS<span class="text-primary">RUHAN</span>
-            </a>
-            
-            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-slate-400">
-                <a href="profile.html" class="hover:text-primary transition-colors">PROFILE</a>
-                <a href="experience.html" class="hover:text-primary transition-colors">EXPERIENCE</a>
-                <a href="projects.html" class="hover:text-primary transition-colors">PROJECTS</a>
-                <a href="leadership.html" class="hover:text-primary transition-colors">LEADERSHIP</a>
-                <a href="blog.html" class="hover:text-primary transition-colors">BLOG</a>
-            </div>
 
-            <div class="flex items-center gap-4">
-                <a href="index_bn.html" class="text-sm font-bold text-slate-400 hover:text-white transition-colors">BN</a>
-                <span class="text-slate-600">|</span>
-                <span class="text-sm font-bold text-primary">EN</span>
-                
-                <a href="mailto:rownakshahriarruhan@gmail.com" class="hidden md:flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-all text-sm font-bold ml-4">
-                    <i class="fas fa-envelope"></i> CONTACT
-                </a>
-            </div>
-        </div>
+<body class="bg-brand-dark text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- Sticky Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-brand-dark/80 border-b border-slate-800">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main Navigation">
+      <a href="https://www.ruhan.online/" class="font-display font-bold text-xl tracking-tight text-white flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+        Rownak Shahriar Ruhan
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-emerald-400 transition">About</a>
+        <a href="#projects" class="hover:text-emerald-400 transition">EV Projects & R&D</a>
+        <a href="#ventures" class="hover:text-emerald-400 transition">Sister Concerns</a>
+        <a href="#leadership" class="hover:text-emerald-400 transition">Awards & Leadership</a>
+        <a href="#insights" class="hover:text-emerald-400 transition">Insights</a>
+        <a href="#contact" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition">Contact</a>
+      </div>
     </nav>
+  </header>
 
-    <main id="content" class="min-h-screen pt-20">
-        <!-- Hero Section -->
-        <header class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-            <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-                <div class="fade-up">
-                    <!-- BUET Identity -->
-                    <div class="flex items-center gap-3 mb-8">
-                        <img src="images/buet_logo.png" alt="BUET Logo" class="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity">
-                        <div class="border-l border-slate-600 pl-3">
-                            <p class="text-xs font-bold text-white tracking-widest">BUET</p>
-                            <p class="text-[10px] text-slate-400 font-mono">EST. 1962</p>
-                        </div>
-                    </div>
-
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                        Automotive Engineering Focus
-                    </div>
-                    
-                    <h1 class="font-mono text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
-                        Advancing <br>
-                        <span class="text-primary typewriter" id="typewriter"></span>
-                    </h1>
-                    
-                    <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-lg leading-relaxed">
-                        Mechanical Engineer & Entrepreneur from <strong>BUET</strong>. Founder of a government-funded EV startup. Bridging vehicle design, structural analysis, and operational efficiency.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a href="experience.html" class="group relative px-8 py-4 bg-white text-dark font-bold rounded-lg overflow-hidden transition-transform active:scale-95">
-                            <div class="absolute inset-0 bg-gradient-to-r from-primary to-blue-400 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
-                            <span class="relative z-10 group-hover:text-white flex items-center gap-2">
-                                VIEW TRAJECTORY <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </span>
-                        </a>
-                        
-                        <a href="projects.html" class="px-8 py-4 rounded-lg border border-slate-700 hover:border-primary text-slate-300 hover:text-white transition-all font-medium flex items-center gap-2">
-                            VIEW PROJECTS
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Abstract Visual -->
-                <div class="relative hidden lg:flex justify-center items-center fade-up" style="transition-delay: 200ms;">
-                    <div class="relative w-[400px] h-[400px]">
-                        <div class="absolute inset-0 border border-slate-700/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                        <div class="absolute inset-[40px] border border-dashed border-slate-600/50 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                        <!-- Central Element -->
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-40 h-40 bg-slate-900 rounded-full border border-slate-700 flex flex-col items-center justify-center shadow-2xl relative overflow-hidden z-10 buet-glow">
-                                <img src="images/buet_logo.png" class="w-24 opacity-80 invert brightness-0 saturate-100" style="filter: brightness(0.8) sepia(1) hue-rotate(-50deg) saturate(3);" alt="BUET">
-                            </div>
-                        </div>
-                        <!-- Orbiting Stats -->
-                        <div class="absolute top-0 right-10 p-3 bg-slate-800/80 backdrop-blur rounded border border-slate-600 shadow-lg animate-bounce duration-[3000ms]">
-                            <span class="text-xs font-bold text-white">Ansys</span>
-                        </div>
-                        <div class="absolute bottom-10 left-10 p-3 bg-slate-800/80 backdrop-blur rounded border border-slate-600 shadow-lg animate-bounce duration-[4000ms]">
-                            <span class="text-xs font-bold text-white">SolidWorks</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Skills Marquee -->
-        <div class="border-y border-white/5 bg-black/20 backdrop-blur-sm py-6 overflow-hidden relative">
-            <div class="marquee-track">
-                <div class="flex gap-12 px-6 items-center whitespace-nowrap text-slate-400 font-mono text-sm font-semibold uppercase tracking-wider">
-                    <span><i class="fas fa-industry text-primary mr-2"></i>Kaizen Optimization</span>
-                    <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
-                    <span><i class="fas fa-wind text-primary mr-2"></i>Ansys Fluent</span>
-                    <span><i class="fas fa-camera text-primary mr-2"></i>Adobe Creative Suite</span>
-                    <span><i class="fas fa-users text-primary mr-2"></i>Team Formation</span>
-                    <span><i class="fas fa-car-battery text-primary mr-2"></i>EV Powertrains</span>
-                    <!-- Duplicate -->
-                    <span><i class="fas fa-industry text-primary mr-2"></i>Kaizen Optimization</span>
-                    <span><i class="fas fa-drafting-compass text-primary mr-2"></i>SolidWorks</span>
-                    <span><i class="fas fa-wind text-primary mr-2"></i>Ansys Fluent</span>
-                    <span><i class="fas fa-camera text-primary mr-2"></i>Adobe Creative Suite</span>
-                    <span><i class="fas fa-users text-primary mr-2"></i>Team Formation</span>
-                    <span><i class="fas fa-car-battery text-primary mr-2"></i>EV Powertrains</span>
-                </div>
-            </div>
+  <main>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 md:py-28 border-b border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-8 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
+            Mechanical Engineering @ BUET • Founder @ TriChokro Automotives
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+            A.A.M. Rownak Shahriar Ruhan
+          </h1>
+          <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl">
+            Automotive Engineer and Startup Founder redefining three-wheeler urban mobility, emergency response EVs, and circular materials in Bangladesh. Creator of <strong>TRC-Pathfinder</strong> and <strong>Project Trambulance</strong>, backed by UIHP (ICT Division), First Flight Venture, and Muspana Energy.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="https://trichokro.com/" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition shadow-lg shadow-emerald-500/20">
+              Explore TriChokro Automotives
+            </a>
+            <a href="https://www.linkedin.com/in/rownakshahriarruhan/" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium border border-slate-700 transition">
+              Connect on LinkedIn
+            </a>
+            <a href="projects.html" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 font-medium border border-slate-800 transition">
+              Full Project Archive
+            </a>
+          </div>
         </div>
-        
-        <!-- Brief About & Blog Preview -->
-        <section class="py-20 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-            <!-- About -->
-            <div class="fade-up">
-                <h3 class="text-2xl font-bold text-white mb-6"><span class="text-primary">///</span> About Me</h3>
-                <p class="text-slate-400 leading-relaxed mb-6">
-                    I am a final-year Mechanical Engineering student at <strong>BUET</strong>, deeply invested in the future of sustainable transportation. My journey involves not just academic excellence, but applying engineering principles to solve real-world problems—from designing ambulance chassis to optimizing battery production lines.
-                </p>
-                <a href="profile.html" class="text-primary text-sm font-bold hover:underline">READ FULL PROFILE <i class="fas fa-arrow-right ml-1"></i></a>
-            </div>
 
-            <!-- Blog Preview -->
-            <div class="fade-up" style="transition-delay: 100ms;">
-                <h3 class="text-2xl font-bold text-white mb-6"><span class="text-primary">///</span> Latest Insights</h3>
-                <div class="space-y-4">
-                    <a href="blog.html" class="block tech-card p-4 rounded hover:bg-slate-800 transition-colors">
-                        <h4 class="text-white font-bold mb-1">Optimizing EV Chassis Rigidity</h4>
-                        <p class="text-xs text-slate-500 font-mono">Structural Analysis • 5 Min Read</p>
-                    </a>
-                    <a href="blog.html" class="block tech-card p-4 rounded hover:bg-slate-800 transition-colors">
-                        <h4 class="text-white font-bold mb-1">The Future of Tri-Wheeler Mobility</h4>
-                        <p class="text-xs text-slate-500 font-mono">Market Research • 4 Min Read</p>
-                    </a>
-                    <a href="blog.html" class="block tech-card p-4 rounded hover:bg-slate-800 transition-colors">
-                        <h4 class="text-white font-bold mb-1">Kaizen in Battery Manufacturing</h4>
-                        <p class="text-xs text-slate-500 font-mono">Industrial Engineering • 6 Min Read</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Facebook Feed Section -->
-        <section class="py-20 bg-slate-900/30 border-y border-white/5">
-            <div class="max-w-4xl mx-auto px-6 text-center fade-up">
-                <h3 class="text-3xl font-bold text-white mb-8"><span class="text-blue-500"><i class="fab fa-facebook"></i></span> Connect on Facebook</h3>
-                <p class="text-slate-400 mb-8">Follow my daily updates, engineering snippets, and project behind-the-scenes.</p>
-                
-                <div class="fb-window max-w-lg mx-auto shadow-2xl">
-                    <div class="fb-header">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        <span class="text-xs font-mono ml-4 text-slate-500">facebook.com/rownakshahriarruhan</span>
-                    </div>
-                    <div class="bg-white">
-                        <!-- Facebook Page Plugin Iframe -->
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frownakshahriarruhan&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Detailed Contact -->
-        <section class="py-20 max-w-4xl mx-auto px-6 text-center fade-up">
-            <h3 class="text-2xl font-bold text-white mb-8">Get In Touch</h3>
-            <div class="tech-card p-8 rounded-2xl inline-block text-left w-full md:w-auto">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-400 uppercase tracking-widest">Email</p>
-                        <p class="text-white font-mono text-lg">rownakshahriarruhan@gmail.com</p>
-                    </div>
-                </div>
-                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-400 uppercase tracking-widest">Location</p>
-                        <p class="text-white font-mono text-lg">Kazi Nazrul Islam Hall, BUET</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-12 border-t border-white/5 bg-slate-900/50">
-        <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm font-mono">
-            &copy; 2026 Rownak Shahriar Ruhan. Engineering Portfolio.
+        <!-- Profile Summary Card -->
+        <div class="md:col-span-4 bg-brand-card border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
+          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400">Entity Overview</div>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex justify-between border-b border-slate-800 pb-2">
+              <span class="text-slate-400">Institution:</span>
+              <span class="font-semibold text-white">BUET (Mechanical Eng.)</span>
+            </li>
+            <li class="flex justify-between border-b border-slate-800 pb-2">
+              <span class="text-slate-400">Venture:</span>
+              <a href="https://trichokro.com/" class="font-semibold text-emerald-400 hover:underline">TriChokro Automotives</a>
+            </li>
+            <li class="flex justify-between border-b border-slate-800 pb-2">
+              <span class="text-slate-400">Global Recognition:</span>
+              <span class="font-semibold text-white">IMechE SOfE Champion '25</span>
+            </li>
+            <li class="flex justify-between border-b border-slate-800 pb-2">
+              <span class="text-slate-400">Core Tools:</span>
+              <span class="font-semibold text-white">Ansys, SolidWorks, CFD</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-slate-400">Base:</span>
+              <span class="font-semibold text-white">Palashi, Dhaka-1000</span>
+            </li>
+          </ul>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="js/main.js"></script>
+    <!-- Key Metrics Strip -->
+    <section class="bg-slate-900/60 border-b border-slate-800 py-10">
+      <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="font-display text-3xl font-bold text-emerald-400">$3,500 + 80K BDT</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Venture & ICT Division Grants</div>
+        </div>
+        <div>
+          <div class="font-display text-3xl font-bold text-white">SOfE 2025</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">IMechE National Champion</div>
+        </div>
+        <div>
+          <div class="font-display text-3xl font-bold text-cyan-400">8 Flaws Solved</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Next-Gen EV Chassis & Braking</div>
+        </div>
+        <div>
+          <div class="font-display text-3xl font-bold text-white">2,400 Cr BDT</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Target Urban EV Market</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 max-w-6xl mx-auto px-6 border-b border-slate-800">
+      <div class="max-w-3xl space-y-6">
+        <h2 class="font-display text-3xl font-bold text-white">Engineering Safe & Sustainable Mobility</h2>
+        <p class="text-slate-300 leading-relaxed">
+          I am <strong>Rownak Shahriar Ruhan</strong>, a Mechanical Engineering researcher at <strong>Bangladesh University of Engineering and Technology (BUET)</strong> and the Founder & CEO of <strong>TriChokro Automotives</strong>. Founded in 2024 alongside fellow BUET engineers, TriChokro addresses the structural, braking, and aerodynamic vulnerabilities of conventional three-wheeled electric vehicles (Easy Bikes) across Bangladesh and low-and-middle-income countries (LMICs).
+        </p>
+        <p class="text-slate-300 leading-relaxed">
+          Academically advised and inspired by BUET Professor Dr. Md. Ehsan, our R&D integrates finite element structural analysis (SolidWorks), thermal brake fade and regenerative braking simulation (Ansys), and Kaizen manufacturing principles. Beyond automotive engineering, I serve as an Executive Member of <strong>Wikimedia Bangladesh</strong>, Chief Editor of <strong>Prohoranto</strong>, and Founder of <strong>Ronograph</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Flagship EV Projects -->
+    <section id="projects" class="py-20 max-w-6xl mx-auto px-6 border-b border-slate-800">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-emerald-400 font-mono text-xs uppercase tracking-widest">Automotive R&D Portfolio</span>
+          <h2 class="font-display text-3xl font-bold text-white mt-2">Flagship Electric Vehicles & Mobility Systems</h2>
+        </div>
+        <a href="http://trichokro.com/pathfinder.html" target="_blank" rel="noopener" class="text-sm text-emerald-400 hover:underline mt-4 md:mt-0">
+          View TRC-Pathfinder Technical Specs &rarr;
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- TRC-Pathfinder -->
+        <article class="bg-brand-card border border-slate-800 rounded-2xl p-8 space-y-4 hover:border-emerald-500/50 transition">
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">Flagship Passenger EV</span>
+            <span class="text-xs text-slate-400 font-mono">1.8L – 3.0L BDT Lineup</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white">TRC-Pathfinder (4 Commercial Trims)</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Engineered to resolve 8 critical safety defects of traditional Easy Bikes. Features a reinforced truss chassis, triple hydraulic disc braking system, MacPherson strut front suspension, and an origami-inspired aerodynamic retractable hood.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+            <li>• <strong>Trims:</strong> Starter (1.8L BDT), Weather-Sealed Pro IP69 (2.0L BDT), Extended Range 150km (2.5L BDT), Heavy Duty (3.0L BDT)</li>
+            <li>• <strong>Performance:</strong> 40 km/h max speed, 5 passengers, 6-hour charge cycle</li>
+          </ul>
+        </article>
+
+        <!-- Project Trambulance -->
+        <article class="bg-brand-card border border-slate-800 rounded-2xl p-8 space-y-4 hover:border-emerald-500/50 transition">
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold">UIHP 2025 Champion</span>
+            <span class="text-xs text-slate-400 font-mono">Emergency Response EV</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white">Project Trambulance</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            A compact, zero-emission three-wheeled electric ambulance built to navigate congested urban lanes in Dhaka where conventional ambulances cannot reach in time.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+            <li>• <strong>Capacity:</strong> 1 stretcher patient + 3 medical caregivers + life-support payload</li>
+            <li>• <strong>Validation:</strong> Aerodynamic hood and chassis validated via Ansys CFD and SolidWorks</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sister Concerns & Consultancy -->
+    <section id="ventures" class="py-20 max-w-6xl mx-auto px-6 border-b border-slate-800">
+      <span class="text-emerald-400 font-mono text-xs uppercase tracking-widest">Circular Economy & Urban Systems</span>
+      <h2 class="font-display text-3xl font-bold text-white mt-2 mb-10">Sister Concerns & Mobility Services</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-brand-card border border-slate-800 rounded-xl p-6 space-y-3">
+          <h3 class="font-display text-xl font-bold text-white">TribOriGen</h3>
+          <p class="text-sm text-slate-300">
+            Circular material science initiative recycling end-of-life waste tires into high-durability Ground Tire Rubber (GTR) elastomers for industrial and automotive applications.
+          </p>
+        </div>
+        <div class="bg-brand-card border border-slate-800 rounded-xl p-6 space-y-3">
+          <h3 class="font-display text-xl font-bold text-white">TriMateria</h3>
+          <p class="text-sm text-slate-300">
+            Developing eco-efficient bio-composites to replace heavy, non-recyclable synthetic body panels in next-generation lightweight electric vehicles.
+          </p>
+        </div>
+        <div class="bg-brand-card border border-slate-800 rounded-xl p-6 space-y-3">
+          <h3 class="font-display text-xl font-bold text-white">Road Safety Consultancy & Shuttle</h3>
+          <p class="text-sm text-slate-300">
+            Urban transport policy consultancy advocating engineering upgrades over blanket auto-rickshaw bans, alongside the 10-Taka BUET–TSC electric campus shuttle and TriChokro Cargo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards, Grants & Leadership -->
+    <section id="leadership" class="py-20 max-w-6xl mx-auto px-6 border-b border-slate-800">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <span class="text-emerald-400 font-mono text-xs uppercase tracking-widest">Recognition & Backing</span>
+          <h2 class="font-display text-2xl font-bold text-white mt-2 mb-6">Honors, Grants & Sponsorships</h2>
+          <ul class="space-y-4 text-sm text-slate-300">
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">Champion — IMechE Speak Out for Engineering (SOfE) 2025</strong>
+              Represented Bangladesh in the South Asian Region Final with TriChokro's engineering research.
+            </li>
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">$3,500 USD Grant — First Flight Venture</strong>
+              Awarded international seed venture grant to accelerate prototype manufacturing.
+            </li>
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">BUET Champion & 80,000 BDT Grant — UIHP (ICT Division)</strong>
+              Recognized at the University Innovation Hub Program for Project Trambulance & EV innovation.
+            </li>
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">Corporate Sponsorship — Muspana Energy (2026)</strong>
+              Backed by Muspana alongside institutional ties with CSTPD, Fakeyaad, and Metrocem Automobiles.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest">Civic & Media Impact</span>
+          <h2 class="font-display text-2xl font-bold text-white mt-2 mb-6">Organizational Leadership</h2>
+          <ul class="space-y-4 text-sm text-slate-300">
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">Executive Member — Wikimedia Bangladesh</strong>
+              Wikipedia Reviewer, Rollbacker, Jury Member, and Wikimedia Commons documentary photographer.
+            </li>
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">Chief Editor — Prohoranto</strong>
+              Leading editorial operations and strategic publishing for the BUETian-run digital newspaper.
+            </li>
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">Founder — Ronograph</strong>
+              Founded a creative visual agency and mentored students in documentary and commercial photography.
+            </li>
+            <li class="p-4 rounded-xl bg-brand-card border border-slate-800">
+              <strong class="text-white block">Organizer — ICME 2025 (BUET) & Ankur Foundation Coordinator</strong>
+              Coordinated international delegates at ICME 2025 and led regional relief operations in Dinajpur.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Insights & Blog -->
+    <section id="insights" class="py-20 max-w-6xl mx-auto px-6 border-b border-slate-800">
+      <span class="text-emerald-400 font-mono text-xs uppercase tracking-widest">Publications & Commentary</span>
+      <h2 class="font-display text-3xl font-bold text-white mt-2 mb-8">Engineering Insights & Policy Analysis</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="bg-brand-card border border-slate-800 rounded-xl p-6 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs text-emerald-400 font-mono">Urban Mobility Policy</span>
+            <h3 class="font-display text-lg font-bold text-white">Solving Dhaka's Auto-Rickshaw Crisis Through Engineering</h3>
+            <p class="text-xs text-slate-400">Why upgrading chassis rigidity and hydraulic braking outperforms blanket bans for Dhaka's three-wheeler fleet.</p>
+          </div>
+          <a href="https://www.facebook.com/profile.php?id=61577812382585" target="_blank" rel="noopener" class="text-xs text-emerald-400 hover:underline mt-4 inline-block">Watch on TriChokro Facebook &rarr;</a>
+        </article>
+
+        <article class="bg-brand-card border border-slate-800 rounded-xl p-6 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs text-emerald-400 font-mono">Structural & Thermal FEA</span>
+            <h3 class="font-display text-lg font-bold text-white">Optimizing EV Chassis Rigidity & Regenerative Braking</h3>
+            <p class="text-xs text-slate-400">Finite element modeling of truss frames and mitigating thermal brake fade in urban electric vehicles.</p>
+          </div>
+          <a href="blog.html" class="text-xs text-emerald-400 hover:underline mt-4 inline-block">Read Technical Article &rarr;</a>
+        </article>
+
+        <article class="bg-brand-card border border-slate-800 rounded-xl p-6 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs text-emerald-400 font-mono">Industrial Engineering</span>
+            <h3 class="font-display text-lg font-bold text-white">Kaizen Optimization in Industrial Battery Manufacturing</h3>
+            <p class="text-xs text-slate-400">Practical takeaways on lean manufacturing, defect reduction, and energy storage assembly in Bangladesh.</p>
+          </div>
+          <a href="blog.html" class="text-xs text-emerald-400 hover:underline mt-4 inline-block">Read Case Study &rarr;</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- SEO-Optimized Footer with Full Entity Links -->
+  <footer id="contact" class="bg-slate-950 py-16 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-sm">
+      <div class="space-y-3">
+        <div class="font-display font-bold text-lg text-white">A.A.M. Rownak Shahriar Ruhan</div>
+        <p class="text-slate-400">
+          Mechanical Engineering, BUET<br>
+          Kazi Nazrul Islam Hall & ME Building, Palashi, Dhaka-1000, Bangladesh
+        </p>
+        <p class="text-slate-300">
+          <strong>Email:</strong> <a href="mailto:rownakshahriarruhan@gmail.com" class="text-emerald-400 hover:underline">rownakshahriarruhan@gmail.com</a><br>
+          <strong>Venture:</strong> <a href="mailto:trichokro.automotives@gmail.com" class="text-emerald-400 hover:underline">trichokro.automotives@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <div class="font-semibold text-white uppercase tracking-wider text-xs">Verified Ecosystem Links</div>
+        <ul class="space-y-2 text-slate-400">
+          <li><a href="https://trichokro.com/" target="_blank" rel="noopener" class="hover:text-emerald-400">TriChokro Automotives (Official Site)</a></li>
+          <li><a href="http://trichokro.com/pathfinder.html" target="_blank" rel="noopener" class="hover:text-emerald-400">TRC-Pathfinder Specifications</a></li>
+          <li><a href="projects.html" class="hover:text-emerald-400">Engineering Projects Archive</a></li>
+          <li><a href="leadership.html" class="hover:text-emerald-400">Leadership & Awards</a></li>
+          <li><a href="blog.html" class="hover:text-emerald-400">Technical Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-2">
+        <div class="font-semibold text-white uppercase tracking-wider text-xs">Official Social Profiles</div>
+        <ul class="space-y-2 text-slate-400">
+          <li><a href="https://www.linkedin.com/in/rownakshahriarruhan/" target="_blank" rel="noopener me" class="hover:text-emerald-400">LinkedIn — @rownakshahriarruhan</a></li>
+          <li><a href="https://www.facebook.com/rownakshahriarruhan/" target="_blank" rel="noopener me" class="hover:text-emerald-400">Facebook (Personal) — Rownak Shahriar Ruhan</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61577812382585" target="_blank" rel="noopener" class="hover:text-emerald-400">Facebook (Startup) — TriChokro Automotives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-slate-900 text-xs text-slate-500 flex justify-between">
+      <span>&copy; 2026 Rownak Shahriar Ruhan. All rights reserved.</span>
+      <span>Built for Google Knowledge Graph & Entity SEO</span>
+    </div>
+  </footer>
+
 </body>
 </html>
